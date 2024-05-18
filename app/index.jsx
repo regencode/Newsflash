@@ -6,7 +6,10 @@ import { Redirect, useRouter, useFocusEffect } from "expo-router";
 export default function Index() {
   const router = useRouter();
   function toLogin() {
-    router.push("(tabs)/home")
+    router.push("(auth)/login")
+  }
+  function toRegister(){
+    router.push("(auth)/register")
   }
   return (
     <View className="flex-1 items-center justify-center bg-white">
@@ -22,7 +25,7 @@ export default function Index() {
         <Pressable onPressOut={toLogin} className="align-middle relative w-[200px] h-[58px] bg-orange-300 rounded-[10px] border-black border-1 mb-[30px]">
           <Text className="relative align-middle justify-center m-auto text-xl">Login</Text>
         </Pressable>
-        <Pressable className="align-middle relative w-[200px] h-[58px] bg-orange-300 rounded-[10px] border-black border-2">
+        <Pressable onPressOut={toRegister} className="align-middle relative w-[200px] h-[58px] bg-orange-300 rounded-[10px] border-black border-2">
           <Text className="relative align-middle justify-center m-auto text-xl">Register</Text>
         </Pressable>
       </View>
