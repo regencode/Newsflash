@@ -4,11 +4,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        main: "#F4F4F2",
+        sub: "#E8E8E8",
+        light: "#BBBFCA",
+        button: "#495464"
 
       },
       fontFamily: {
-        pone: ["PoetsenOne"],
-        helvetica: ["Helvetica"]
+        "proxima": ["ProximaNova"],
+        "proxima-bold": ["ProximaNovaSemi"]
       }
     },
   },

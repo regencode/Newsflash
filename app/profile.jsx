@@ -1,23 +1,32 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
+import userImage from '../components/userImage';
 
 const profile = () => {
   const router = useRouter();
   return (
-    <View style={styles.container}>
-      <Text>profile</Text>
-      <Link href="/index" style={{color: "blue"}}>Go to Index</Link>
+    <View>
+      {userImage(9)}
+      {userInfo("User Name", "username@email.com")}
+      <Pressable>
+        
+      </Pressable>
     </View>
   )
+  function userInfo(userName, Email) {
+    return (
+      <View>
+        <Text className="mx-auto text-2xl">
+        {userName}
+        </Text>
+        <Text className="mx-auto text-2xl">
+        {Email}
+        </Text>
+      </View>
+    )
+  }
 }
 
 export default profile
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: "center",
-        backgroundColor: "black"
-    }
-})

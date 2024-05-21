@@ -1,11 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React from 'react'
+import newsUnit from '../../components/newsUnit';
 
 const saved = () => {
   return (
-    <View>
-      <Text>saved</Text>
-    </View>
+    <ScrollView>
+      <Text className="text-3xl ml-[5%] mt-4 mb-4 font-proxima">Saved</Text>
+      {newsUnit("TITLE", "Generic Writer", "02-02-24", "business", "THIS IS A TEST", "none")}
+    </ScrollView>
   )
 }
 

@@ -7,7 +7,8 @@ import { useFonts } from 'expo-font'
 const RootLayout = () => {
   const [fontsLoaded, error] = useFonts({
     "PoetsenOne": require("../assets/fonts/PoetsenOne-Regular.ttf"),
-    "Helvetica": require("../assets/fonts/Helvetica.ttf")
+    "ProximaNova": require("../assets/fonts/Mark Simonson Proxima Nova Regular.otf"),
+    "ProximaNovaSemi": require("../assets/fonts/Mark Simonson Proxima Nova Semibold.otf")
   })
   return (
     <Stack>
