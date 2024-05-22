@@ -20,7 +20,8 @@ const TabLayout = () => {
   return (
     <>
       <Tabs screenOptions={{
-        tabBarShowLabel: true
+        tabBarShowLabel: true,
+        headerShown: false
       }}>
 
          <Tabs.Screen 

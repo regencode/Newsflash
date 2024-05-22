@@ -4,7 +4,7 @@ import compass from "../assets/icons/compass-removebg-preview.png";
 import compass_selected from "../assets/icons/compass-circular-tool-removebg-preview.png";
 import home from "../assets/icons/home-removebg-preview.png";
 import home_selected from "../assets/icons/home_1_-removebg-preview.png";
-
+import logo from "../assets/images/logo.png";
 
 
 export const icons = {
@@ -13,5 +13,6 @@ export const icons = {
     compass,
     compass_selected,
     home,
-    home_selected
+    home_selected,
+    logo
 }
