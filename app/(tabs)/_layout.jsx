@@ -2,6 +2,7 @@ import { StyleSheet, Text, View, Image, Stack } from 'react-native'
 import React from 'react'
 import { Tabs } from 'expo-router'
 import { icons }  from "../../constants/icons.ts";
+import customHeader from '../../components/customHeader.jsx';
 
 const TabIcon = ({icon, color, name, focused}) => {
   return (
@@ -20,10 +21,8 @@ const TabLayout = () => {
   return (
     <>
       <Tabs screenOptions={{
-        tabBarShowLabel: true,
-        headerShown: false
+        tabBarShowLabel: false,
       }}>
-
          <Tabs.Screen 
           name="explore"
           options={{
@@ -36,7 +35,8 @@ const TabLayout = () => {
                 name="Explore"
                 focused={focused}
               />
-            )
+            ),
+            style: {headerStyle}
           }}
         />       
         <Tabs.Screen 
@@ -75,3 +75,7 @@ const TabLayout = () => {
 }
 
 export default TabLayout
+
+const headerStyle = StyleSheet.create({
+  backgroundColor: "red"
+})

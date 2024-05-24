@@ -5,6 +5,7 @@ import compass_selected from "../assets/icons/compass-circular-tool-removebg-pre
 import home from "../assets/icons/home-removebg-preview.png";
 import home_selected from "../assets/icons/home_1_-removebg-preview.png";
 import logo from "../assets/images/logo.png";
+import account_button from "../assets/icons/account_button.png";
 
 
 export const icons = {
@@ -14,5 +15,6 @@ export const icons = {
     compass_selected,
     home,
     home_selected,
-    logo
+    logo,
+    account_button
 }

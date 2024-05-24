@@ -3,12 +3,14 @@ import { Link } from "expo-router";
 import React from 'react'
 import newsUnit from '../../components/newsUnit';
 import topNewsUnit from '../../components/topNewsUnit';
+import customHeader from '../../components/customHeader';
 
 const home = () => {
   const {height, width} = useWindowDimensions();
   var user = "User";
   return (
-    <ScrollView className="bg-main">
+    <ScrollView className="bg-main" stickyHeaderIndices={[0]}>
+    {customHeader(true)}
     <View className="h-[40px]">
       <Text className="font-proxima-bold absolute left-3 text-2xl mt-[12px]">Latest News</Text><Link href="./explore" className="absolute right-3 text-2xl mt-[12px] text-blue-400">See All {'>'}</Link>
     </View>

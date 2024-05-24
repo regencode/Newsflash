@@ -1,5 +1,6 @@
-import { View, Text, Image, Pressable } from 'react-native'
+import { View, Text, Image, Pressable, Touchable } from 'react-native'
 import React from 'react'
+import showNewsPage from './showNewsPage'
 
 export default function topNewsUnit(title, author, date, tags, short_desc, image) {
   return (

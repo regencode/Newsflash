@@ -11,9 +11,9 @@ const RootLayout = () => {
     "ProximaNovaSemi": require("../assets/fonts/Mark Simonson Proxima Nova Semibold.otf")
   })
   return (
-    <Stack>
+    <Slot>
       <Stack.Screen name="index" options={{ headerShown:false }} />
-    </Stack>
+    </Slot>
   )
 }
 

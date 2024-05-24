@@ -25,7 +25,6 @@ export default function Index() {
 
       <View className="relative justify-center mt-[37%] mb-auto">
         <Text className="font-proxima-bold text-[52px] align-middle justify-center text-white italic font-bold">Newsflash</Text>
-        {/* <Text className="font-proxima">Your news, Shortened and Simplified</Text> */}
       </View>
       <Image 
         source={icons.logo}
