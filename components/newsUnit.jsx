@@ -12,6 +12,7 @@ export default function newsUnit(title, author, date, tags, short_desc, image){
           <Text className="font-proxima text-[10px] align-middle justify-center mx-auto my-auto text-white">{tags}</Text>
         </View>
       </View>
+      <View></View>
       {/* <View className="absolute bg-white z-50 w-[100%] h-[60%] bottom-0">
 
       </View> */}
