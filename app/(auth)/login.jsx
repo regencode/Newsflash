@@ -1,4 +1,4 @@
-import { TextInput, Text, View, Pressable } from "react-native";
+import { TextInput, Text, View, Pressable, TouchableOpacity } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import customHeaderNoProfile from "../../components/customHeaderNoProfile";
@@ -30,12 +30,12 @@ export default function login() {
         </View>
       </View>
       <View>
-        <Pressable onPressOut={toHome} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[20px] rounded-[30px] border">
+        <TouchableOpacity onPressOut={toHome} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[20px] rounded-[30px] border">
           <Text className="relative align-middle justify-center m-auto text-xl text-white font-proxima-bold font-bold">Login</Text>
-        </Pressable>
-        <Pressable onPressOut={toIndex} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-transparent border-[#FF3A44] mb-[10px] rounded-[30px] border">
+        </TouchableOpacity>
+        <TouchableOpacity onPressOut={toIndex} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-transparent border-[#FF3A44] mb-[10px] rounded-[30px] border">
           <Text className="relative align-middle justify-center m-auto text-xl text-[#FF3A44] font-proxima-bold font-bold">Back</Text>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     </View>
   );

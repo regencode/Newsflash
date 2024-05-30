@@ -1,8 +1,8 @@
-import { View, Image, Text, Pressable, StyleSheet } from 'react-native';
+import { View, Image, Text, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function newsUnit(title, author, date, tags, short_desc, image){
+const NewsUnit = ({ title, author, date, tags}) => {
   return (
-    <Pressable className="w-[92%] h-[128px] border-b border-sub mx-auto justify-center overflow-hidden items-center mb-3 rounded-xl bg-[rgba(0,0,0,.6)]">
+    <TouchableOpacity className="w-[92%] h-[128px] border-b border-sub mx-auto justify-center overflow-hidden items-center mb-3 rounded-xl bg-[rgba(0,0,0,.6)]">
       <Image className="align-center absolute object-cover w-[100%] h-[100%]" source={require("../assets/images/TEST_IMAGE.jpg")} />
       <View className="absolute align-center w-[100%] h-[100%] bg-black opacity-30"></View>
       <View className="align-center w-[90%] h-[80%] text-left mx-auto my-auto">
@@ -16,6 +16,8 @@ export default function newsUnit(title, author, date, tags, short_desc, image){
       {/* <View className="absolute bg-white z-50 w-[100%] h-[60%] bottom-0">
 
       </View> */}
-    </Pressable>
+    </TouchableOpacity>
   )
 }
+
+export default NewsUnit;

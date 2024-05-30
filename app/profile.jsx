@@ -2,11 +2,13 @@ import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
 import userImage from '../components/userImage';
+import customHeaderNoProfile from '../components/customHeaderNoProfile';
 
 const profile = () => {
   const router = useRouter();
   return (
     <View>
+      {customHeaderNoProfile()}
       {userImage(9)}
       {userInfo("User Name", "username@email.com")}
       <Pressable>

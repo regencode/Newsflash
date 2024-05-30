@@ -1,19 +1,31 @@
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Pressable } from 'react-native';
 import React from 'react';
 import { icons } from '../constants/icons';
-
+import { useRouter } from 'expo-router';
+import { TouchableOpacity } from 'react-native';
 
 export default function customHeader(showProfileButton) {
 
+    function goToHome(){
+        return router.replace("(tabs)/home");
+    }
+
+    function goToProfile(){
+        return router.replace("../profile")
+    }
+
+    const router = useRouter()
   return (
     <View className="h-[15vh] w-full bg-white">
-        <Image 
-        source={icons.logo}
-        className="ml-[4%] h-[60%] mb-1 mt-auto aspect-square"
-        />
-        <View className="absolute right-[4%] bottom-0 h-[60%] w-fit aspect-square">
+        <Pressable onPressOut={() => {goToHome}} className="ml-[4%] h-full mb-1 mt-auto aspect-square">
+            <Image 
+            source={icons.logo}
+            className="ml-[4%] h-[60%] mb-1 mt-auto aspect-square"
+            />
+        </Pressable>
+        <TouchableOpacity className="absolute right-[4%] bottom-0 h-[60%] w-fit aspect-square" onPressOut={goToProfile}>
             {showProfileButton(true)}       
-        </View>
+        </TouchableOpacity>
     </View>
   )
     function showProfileButton(show){
