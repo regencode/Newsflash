@@ -32,9 +32,8 @@
       "expo-router",
       ["expo-font", 
       { "fonts": [
-        "assets/fonts/MPLUS1Code-VariableFont_wght.ttf",
-        "assets/fonts/PoetsenOne-Regular.ttf"
-      ]}]
+        "assets/fonts/Mark Simonson Proxima Nova Regular.otf",
+        "assets/fonts/Mark Simonson Proxima Nova Semibold.otf"]}]
     ],
     "experiments": {
       "typedRoutes": true

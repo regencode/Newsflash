@@ -10,12 +10,6 @@ export default function Index() {
   function toLogin() {
     router.push("(auth)/login");
   }
-  function toRegister(){
-    router.push("(auth)/register");
-  }
-  function toProfile(){
-    router.push("./profile");
-  }
   
   return (
     <View className="flex-1 items-center justify-center bg-[#D6484C]">
@@ -34,7 +28,7 @@ export default function Index() {
       <StatusBar style="auto" />
 
       <View className="relative mt-auto mb-[60px] text-center">
-        <TouchableOpacity onPressOut={() => {toLogin}} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[10px] rounded-[30px] border">
+        <TouchableOpacity onPressOut={toLogin} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[10px] rounded-[30px] border">
           <Text className="relative align-middle justify-center m-auto text-xl text-white font-proxima-bold font-bold">Login</Text>
         </TouchableOpacity>
         <Text className="font-proxima relative align-middle justify-center m-auto text-xl text-white">Don't have an account?</Text>
