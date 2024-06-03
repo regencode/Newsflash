@@ -58,7 +58,7 @@ const TabLayout = () => {
         )
       }}/>
       <Tab.Screen
-      name="Expolre"
+      name="Explore"
       component={Explore}
       options={{
         title: "Explore",
@@ -77,7 +77,7 @@ const TabLayout = () => {
       name="Profile"
       component={Profile}
       options={{
-        title: "profile",
+        title: "Profile",
         headerShown: false,
         tabBarIcon: ({ color, focused }) => (
           <TabIcon 

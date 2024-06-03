@@ -5,7 +5,7 @@ import NewsUnit from '../../components/newsUnit';
 import TopNewsUnit from '../../components/topNewsUnit';
 import customHeader from '../../components/customHeader';
 
-const home = () => {
+const Home = () => {
   const {height, width} = useWindowDimensions();
   var user = "User";
   const router = useRouter()
@@ -101,4 +101,4 @@ const home = () => {
 
 
 
-export default home
+export default Home

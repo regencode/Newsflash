@@ -29,6 +29,9 @@ const TopNewsUnit = ({ title, author, date, tags }) => {
       {/* <View className="absolute bg-white z-50 w-[100%] h-[60%] bottom-0">
 
       </View> */}
+      <TouchableOpacity className="absolute right-2 bottom-2 bg-[#FF3A44] aspect-square h-[18%] w-auto text-center rounded-2xl">
+        <Text className="text-white font-proxima-bold text-center text-xl">...</Text>
+      </TouchableOpacity>
     </TouchableOpacity>
   )
 }

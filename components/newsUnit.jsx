@@ -12,7 +12,9 @@ const NewsUnit = ({ title, author, date, tags}) => {
           <Text className="font-proxima text-[10px] align-middle justify-center mx-auto my-auto text-white">{tags}</Text>
         </View>
       </View>
-      <View></View>
+      <TouchableOpacity className="absolute right-1 bottom-1 bg-[#FF3A44] aspect-square h-[30%] w-auto text-center rounded-2xl">
+        <Text className="text-white font-proxima-bold text-center text-xl">...</Text>
+      </TouchableOpacity>
       {/* <View className="absolute bg-white z-50 w-[100%] h-[60%] bottom-0">
 
       </View> */}

@@ -3,7 +3,7 @@ import React from 'react'
 import NewsUnit from '../../components/newsUnit'
 import customHeader from '../../components/customHeader'
 
-const explore = () => {
+const Explore = () => {
   return (
     <ScrollView stickyHeaderIndices={[0]} className="bg-main">
     {customHeader(true)}
@@ -30,4 +30,4 @@ const explore = () => {
   )
 }
 
-export default explore
+export default Explore

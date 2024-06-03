@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, ScrollView } from 'react-native'
 import React from 'react'
-import NewsUnit from '../../components/newsUnit';
-import customHeader from '../../components/customHeader';
+import NewsUnit from '../../components/newsUnit'
+import customHeader from '../../components/customHeader'
 
-export const Saved = () => {
+export const Explore = () => {
   return (
     <ScrollView stickyHeaderIndices={[0]} className="bg-main">
-      {customHeader()}
-      <Text className="text-3xl ml-[5%] mt-4 mb-4 font-proxima">Saved</Text>
+    {customHeader(true)}
+      <Text className="text-3xl ml-[5%] mt-4 mb-4 font-proxima">Explore</Text>
       <NewsUnit
       title="Lorem ipsum dolor sit amet"
       author="Generic Writer"
@@ -30,4 +30,4 @@ export const Saved = () => {
   )
 }
 
-export default Saved 
+export default Explore
