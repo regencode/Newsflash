@@ -1,4 +1,4 @@
-import { TextInput, Text, View, Pressable, TouchableOpacity } from "react-native";
+import { TextInput, Text, View, Pressable, TouchableOpacity, StatusBar } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
 import customHeaderNoProfile from "../../components/customHeaderNoProfile";
@@ -14,6 +14,7 @@ export default function login() {
   return (
     <View>
       {customHeaderNoProfile(true)}
+      <StatusBar barStyle={"dark-content"} />
       <Text className="font-proxima-bold mt-[5%] mx-auto text-3xl">Login to your account</Text>
       <View className="mt-[10%] mb-[30%] w-full">
         <View className="mb-[10px]">

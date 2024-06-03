@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Pressable } from 'react-native'
+import { View, Text, TextInput, Pressable, StatusBar } from 'react-native'
 import { useState } from 'react';
 import React from "react";
 import { createUser } from "../../lib/appwrite";
@@ -28,6 +28,7 @@ const register = () => {
   return (
     <View>
       {customHeaderNoProfile()}
+      <StatusBar barStyle={"dark-content"} />
       <Text className="font-proxima-bold mt-[5%] mx-auto text-3xl">Register</Text>
       <View className="mt-[10%] mb-[10%]">
         <View className="mb-[10px]">

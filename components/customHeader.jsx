@@ -1,4 +1,4 @@
-import { View, Text, Image, Pressable } from 'react-native';
+import { View, Text, Image, Pressable, StatusBar } from 'react-native';
 import React from 'react';
 import { icons } from '../constants/icons';
 import { useRouter } from 'expo-router';
@@ -23,6 +23,7 @@ export default function customHeader(showProfileButton) {
             className="ml-[4%] h-[60%] mb-1 mt-auto aspect-square"
             />
         </Pressable>
+        <StatusBar style={{ backgroundColor: 'black' }} />
         <TouchableOpacity className="absolute right-[4%] bottom-0 h-[60%] w-fit aspect-square" onPressOut={goToProfile}>
             {showProfileButton(true)}       
         </TouchableOpacity>

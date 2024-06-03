@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image, Pressable } from 'react-native'
+import { View, Text, ScrollView, Image, Pressable, StatusBar } from 'react-native'
 import React from 'react'
 import customHeader from '../components/customHeader'
 import settingsPopup from '../components/settingsPopup'
@@ -7,6 +7,7 @@ const newsPage = () => {
   return (
     <ScrollView stickyHeaderIndices={[0]} className="bg-main">
       {customHeader(true)}
+      <StatusBar barStyle={'dark-content'} />
       <View className="w-full h-[30vh] overflow-hidden">
         <Image source={require("../assets/images/TEST_IMAGE.jpg")} className="align-center absolute object-cover w-[100%] h-[100%]"/>
       </View>

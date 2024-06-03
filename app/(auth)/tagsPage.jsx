@@ -1,4 +1,4 @@
-import { View, Text, Pressable } from 'react-native'
+import { View, Text, Pressable, StatusBar } from 'react-native'
 import React, { useState } from 'react'
 import customHeaderNoProfile from '../../components/customHeaderNoProfile'
 import { TouchableOpacity } from 'react-native'
@@ -24,6 +24,7 @@ export default function tagsPage() {
   return (
     <View>
         {customHeaderNoProfile()}
+        <StatusBar barStyle={'dark-content'} />
         <Text className="font-proxima-bold mt-[5%] mx-auto text-3xl text-center mb-[10%]">Select your interests (minimum 2)</Text>
         <View className="mb-3">
             <TagButton logo="💼" text="Business"/>

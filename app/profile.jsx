@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import { Pressable, StyleSheet, Text, View, TouchableOpacity, StatusBar } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
 import userImage from '../components/userImage';
@@ -9,6 +9,7 @@ const profile = () => {
   return (
     <View className="w-[100%] h-[100%]">
       {customHeaderNoProfile()}
+      <StatusBar barStyle='dark-content' />
       <Text className="mx-auto text-3xl font-proxima-bold">Account Information</Text>
       {userImage(9)}
       {userInfo("User Name", "username@email.com")}

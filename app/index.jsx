@@ -25,7 +25,7 @@ export default function Index() {
         className="w-[250px] h-[250px]"
       />
 
-      <StatusBar style="auto" />
+      <StatusBar style="light-content" />
 
       <View className="relative mt-auto mb-[60px] text-center">
         <TouchableOpacity onPressOut={toLogin} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[10px] rounded-[30px] border">

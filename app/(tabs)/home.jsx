@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import NewsUnit from '../../components/newsUnit';
 import TopNewsUnit from '../../components/topNewsUnit';
 import customHeader from '../../components/customHeader';
+import { StatusBar } from 'expo-status-bar';
 
 const Home = () => {
   const {height, width} = useWindowDimensions();
@@ -32,6 +33,7 @@ const Home = () => {
   return (
     <ScrollView {...panResponder.panHandlers} className="bg-main" stickyHeaderIndices={[0]}>
     {customHeader(true)}
+    <StatusBar style='dark-content' />
     <View className="h-[40px]">
       <Text className="font-proxima-bold absolute left-3 text-2xl mt-[12px]">Latest News</Text><Link href="./explore" className="absolute right-3 text-2xl mt-[12px] text-blue-400">See All {'>'}</Link>
     </View>
