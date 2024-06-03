@@ -18,7 +18,7 @@ const newsPage = () => {
         <View className="absolute left-0 w-fit h-full rounded-2xl bg-[#FF3A44]">
           <Text className="font-proxima-bold text-white mx-3 my-auto align-middle">Health</Text>
         </View>
-        <View className="mr-0 ml-auto w-[50%] h-full">
+        <View className="mr-0 ml-auto w-[55%] h-full">
           <View className="absolute left-0 w-fit h-full rounded-2xl bg-[#FF3A44]">
             <Text className="font-proxima-bold text-white mx-3 my-auto align-middle">Length: Medium</Text>
           </View>

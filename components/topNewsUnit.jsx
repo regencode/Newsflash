@@ -4,6 +4,7 @@ import { useState } from 'react'
 import showNewsPage from './showNewsPage'
 import { useRouter } from 'expo-router'
 import { TouchableOpacity } from 'react-native'
+import TagContainer from './TagContainer'
 
 
 const TopNewsUnit = ({ title, author, date, tags }) => {
@@ -20,16 +21,14 @@ const TopNewsUnit = ({ title, author, date, tags }) => {
       <Image className="align-center absolute object-cover w-[100%] h-[100%]" source={require("../assets/images/TEST_IMAGE.jpg")} />
       <View className="absolute align-center w-[100%] h-[100%] bg-black opacity-30"></View>
       <View className="align-center w-[90%] h-[80%] text-left mx-auto my-auto">
-        <Text className="font-proxima-bold text-[15px] text-white">{title}</Text>
+        <Text className="font-proxima-bold text-[20px] text-white">{title}</Text>
         <Text className="font-proxima text-xs text-white">{author} / {date}</Text>
-        <View className="w-[20%] h-[12%] rounded border border-white">
-          <Text className="font-proxima text-[10px] align-middle justify-center mx-auto my-auto text-white">{tags}</Text>
-        </View>
+      <TagContainer text={tags} />
       </View>
       {/* <View className="absolute bg-white z-50 w-[100%] h-[60%] bottom-0">
 
       </View> */}
-      <TouchableOpacity className="absolute right-2 bottom-2 bg-[#FF3A44] aspect-square h-[18%] w-auto text-center rounded-2xl">
+      <TouchableOpacity className="absolute right-2 bottom-2 bg-[#FF3A44] aspect-[37/25] h-[15%] w-auto text-center rounded-lg">
         <Text className="text-white font-proxima-bold text-center text-xl">...</Text>
       </TouchableOpacity>
     </TouchableOpacity>

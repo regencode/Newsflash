@@ -1,4 +1,5 @@
 import { View, Image, Text, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
+import TagContainer from './TagContainer';
 
 const NewsUnit = ({ title, author, date, tags}) => {
   return (
@@ -8,11 +9,9 @@ const NewsUnit = ({ title, author, date, tags}) => {
       <View className="align-center w-[90%] h-[80%] text-left mx-auto my-auto">
         <Text className="font-proxima-bold text-[15px] text-white">{title}</Text>
         <Text className="font-proxima text-xs text-white">{author} / {date}</Text>
-        <View className="w-[20%] h-[12%] rounded border border-white">
-          <Text className="font-proxima text-[10px] align-middle justify-center mx-auto my-auto text-white">{tags}</Text>
-        </View>
+      <TagContainer text={tags} />
       </View>
-      <TouchableOpacity className="absolute right-1 bottom-1 bg-[#FF3A44] aspect-square h-[30%] w-auto text-center rounded-2xl">
+      <TouchableOpacity className="absolute right-2 bottom-2 bg-[#FF3A44] aspect-[37/25] h-[25%] w-auto text-center rounded-lg">
         <Text className="text-white font-proxima-bold text-center text-xl">...</Text>
       </TouchableOpacity>
       {/* <View className="absolute bg-white z-50 w-[100%] h-[60%] bottom-0">

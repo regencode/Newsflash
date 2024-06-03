@@ -32,7 +32,7 @@ export default function Index() {
           <Text className="relative align-middle justify-center m-auto text-xl text-white font-proxima-bold font-bold">Login</Text>
         </TouchableOpacity>
         <Text className="font-proxima relative align-middle justify-center m-auto text-xl text-white">Don't have an account?</Text>
-        <Text className="font-proxima relative align-middle justify-center m-auto text-xl text-white mx-auto"> <Link href="(auth)/register" className="text-yellow-500 underline font-bold">Register</Link> or <Link href="(tabs)/home" className="text-yellow-500 underline font-bold">Join as Guest</Link></Text>
+        <Text className="font-proxima relative align-middle justify-center m-auto text-xl text-white mx-auto"> <Link href="(auth)/register" className="text-yellow-500 underline font-bold">Register</Link> or <Link href="(tabs)/Home" className="text-yellow-500 underline font-bold">Join as Guest</Link></Text>
       </View>
       
     </View>
