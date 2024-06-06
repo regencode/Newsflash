@@ -3,6 +3,7 @@ import React from 'react'
 import NewsUnit from '../../components/newsUnit';
 import customHeader from '../../components/customHeader';
 
+
 const Profile = () => {
   return (
     <ScrollView stickyHeaderIndices={[0]} className="bg-main">

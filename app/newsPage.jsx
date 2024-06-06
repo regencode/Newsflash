@@ -1,13 +1,17 @@
 import { View, Text, ScrollView, Image, Pressable, StatusBar } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import customHeader from '../components/customHeader'
 import settingsPopup from '../components/settingsPopup'
+import BottomPopup from '../components/BottomPagePopup'
+import { TouchableOpacity } from 'react-native'
 
 const newsPage = () => {
+  const [showPopup, setShowPopup] = useState(false);
   return (
     <ScrollView stickyHeaderIndices={[0]} className="bg-main">
+    <BottomPopup showPopup={showPopup} togglePopup={setShowPopup} />
       {customHeader(true)}
-      <StatusBar barStyle={'dark-content'} />
+      <StatusBar barStyle={'dark-content'} backgroundColor="white"/>
       <View className="w-full h-[30vh] overflow-hidden">
         <Image source={require("../assets/images/TEST_IMAGE.jpg")} className="align-center absolute object-cover w-[100%] h-[100%]"/>
       </View>
@@ -23,9 +27,9 @@ const newsPage = () => {
           <View className="absolute left-0 w-fit h-full rounded-2xl bg-[#FF3A44]">
             <Text className="font-proxima-bold text-white mx-3 my-auto align-middle">Length: Medium</Text>
           </View>
-          <Pressable className="absolute right-0 w-fit h-full rounded-2xl bg-[#FF3A44]" onPressOut={settingsPopup}>
+          <TouchableOpacity className="absolute right-0 w-fit h-full rounded-2xl bg-[#FF3A44]" onPressOut={() => {setShowPopup(true)}}>
             <Text className="font-proxima-bold text-white mx-3 my-auto align-middle">...</Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </View>
       <View className="mx-auto w-[85%]">

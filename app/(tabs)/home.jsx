@@ -5,6 +5,8 @@ import NewsUnit from '../../components/newsUnit';
 import TopNewsUnit from '../../components/topNewsUnit';
 import customHeader from '../../components/customHeader';
 import { StatusBar } from 'expo-status-bar';
+import BottomPopup from '../../components/BottomPagePopup';
+
 
 const Home = () => {
   const {height, width} = useWindowDimensions();
@@ -13,27 +15,14 @@ const Home = () => {
   function goToNewsPage(){
     return router.push("../newsPage")
   }
-  const panResponder = React.useRef(
-    PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderGrant: () => {
-        console.log("tap")
-      },
-      onPanResponderMove: (evt, gestureState) => {
-        if(Math.abs(gestureState.dx) > 10 || Math.abs(gestureState.dy) > 10)
-        console.log("scrolling")
-        return;
-      },
-      onPanResponderRelease: (gestureState) => {
-        console.log("release")
-      },
-      onPanResponderTerminationRequest: () => false
-    })
-  );
+
+  const [showPopup, setShowPopup] = useState(false);
   return (
-    <ScrollView {...panResponder.panHandlers} className="bg-main" stickyHeaderIndices={[0]}>
+
+    <ScrollView className="bg-main" stickyHeaderIndices={[0]}>
+    <BottomPopup showPopup={showPopup} togglePopup={setShowPopup}/>
     {customHeader(true)}
-    <StatusBar style='dark-content' />
+    <StatusBar style='dark-content' backgroundColor='white' />
     <View className="h-[40px]">
       <Text className="font-proxima-bold absolute left-3 text-2xl mt-[12px]">Latest News</Text><Link href="./explore" className="absolute right-3 text-2xl mt-[12px] text-blue-400">See All {'>'}</Link>
     </View>
@@ -43,7 +32,8 @@ const Home = () => {
           title="Lorem ipsum dolor sit amet"
           author="Generic Writer"
           date="02-02-24"
-          tags="business"  
+          tags="business"
+          togglePopup={setShowPopup}
         />
         <TopNewsUnit
           title="Lorem ipsum dolor sit amet"
@@ -76,6 +66,7 @@ const Home = () => {
       author="Generic Writer"
       date="02-02-24"
       tags="business"
+      togglePopup={setShowPopup}
       />
       <NewsUnit
       title="Lorem ipsum dolor sit amet"
@@ -95,6 +86,7 @@ const Home = () => {
       date="02-02-24"
       tags="business"
       />
+
     </ScrollView>
 
   )
