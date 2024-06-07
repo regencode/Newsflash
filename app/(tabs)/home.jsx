@@ -6,21 +6,28 @@ import TopNewsUnit from '../../components/topNewsUnit';
 import customHeader from '../../components/customHeader';
 import { StatusBar } from 'expo-status-bar';
 import BottomPopup from '../../components/BottomPagePopup';
-
+import NewsPage from '../../components/newsPage';
+import { getNews } from '../../lib/appwrite.js';
 
 const Home = () => {
   const {height, width} = useWindowDimensions();
   var user = "User";
   const router = useRouter()
-  function goToNewsPage(){
-    return router.push("../newsPage")
-  }
 
   const [showPopup, setShowPopup] = useState(false);
-  return (
+  const [showNewsPage, setShowNewsPage] = useState(false);
+  const [contentArray, setContentArray] = useState([])
 
+  const [loading, setLoading] = useState(false)
+
+  async function renderNewsUnit(amount){
+    let docList = await getNews(amount, 'technology') //example
+    // todo
+  }
+  return (
     <ScrollView className="bg-main" stickyHeaderIndices={[0]}>
     <BottomPopup showPopup={showPopup} togglePopup={setShowPopup}/>
+    <NewsPage showNewsPage={showNewsPage} toggleNewsPage={setShowNewsPage}/>
     {customHeader(true)}
     <StatusBar style='dark-content' backgroundColor='white' />
     <View className="h-[40px]">
@@ -67,24 +74,29 @@ const Home = () => {
       date="02-02-24"
       tags="business"
       togglePopup={setShowPopup}
+      toggleNewsPage={setShowNewsPage}
+      setContentArray={setContentArray}
       />
       <NewsUnit
       title="Lorem ipsum dolor sit amet"
       author="Generic Writer"
       date="02-02-24"
       tags="business"
+      toggleNewsPage={setShowNewsPage}
       />
       <NewsUnit
       title="Lorem ipsum dolor sit amet"
       author="Generic Writer"
       date="02-02-24"
       tags="business"
+      toggleNewsPage={setShowNewsPage}
       />
       <NewsUnit
       title="Lorem ipsum dolor sit amet"
       author="Generic Writer"
       date="02-02-24"
       tags="business"
+      toggleNewsPage={setShowNewsPage}
       />
 
     </ScrollView>

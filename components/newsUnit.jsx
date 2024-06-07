@@ -1,9 +1,9 @@
 import { View, Image, Text, Pressable, StyleSheet, TouchableOpacity } from 'react-native';
 import TagContainer from './TagContainer';
 
-const NewsUnit = ({ title, author, date, tags, togglePopup }) => {
+const NewsUnit = ({ title, author, date, tags, togglePopup, toggleNewsPage, setContentArray }) => {
   return (
-    <TouchableOpacity className="w-[92%] h-[128px] border-b border-sub mx-auto justify-center overflow-hidden items-center mb-3 rounded-xl bg-[rgba(0,0,0,.6)]">
+    <TouchableOpacity onLongPress={() => {toggleNewsPage(true)}} className="w-[92%] h-[128px] border-b border-sub mx-auto justify-center overflow-hidden items-center mb-3 rounded-xl bg-[rgba(0,0,0,.6)]">
       <Image className="align-center absolute object-cover w-[100%] h-[100%]" source={require("../assets/images/TEST_IMAGE.jpg")} />
       <View className="absolute align-center w-[100%] h-[100%] bg-black opacity-30"></View>
       <View className="align-center w-[90%] h-[80%] text-left mx-auto my-auto">

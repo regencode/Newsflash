@@ -8,6 +8,7 @@ import home_selected from "../assets/icons/home_1_-removebg-preview.png";
 import logo from "../assets/images/logo.png";
 import account_button from "../assets/icons/account_button.png";
 import profile from "../assets/icons/profile.png";
+import arrowBack from "../assets/icons/chevron_10009593.png"
 
 
 export const icons = {
@@ -20,5 +21,6 @@ export const icons = {
     logo,
     account_button,
     profile,
-    explore
+    explore,
+    arrowBack
 }
