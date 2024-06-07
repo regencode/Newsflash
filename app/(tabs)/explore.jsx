@@ -4,6 +4,7 @@ import NewsUnit from '../../components/newsUnit'
 import customHeader from '../../components/customHeader'
 
 const Explore = () => {
+
   return (
     <ScrollView stickyHeaderIndices={[0]} className="bg-main">
     {customHeader(true)}

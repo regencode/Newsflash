@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { Redirect, useRouter, useFocusEffect, Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
 import { icons } from "../constants/icons";
+// import getDocuments from '../lib/appwrite.js'
 import 'react-native-gesture-handler';
 
 export default function Index() {
@@ -10,6 +11,10 @@ export default function Index() {
   function toLogin() {
     router.push("(auth)/login");
   }
+
+  // function getDocs(){
+  //   getDocuments(5, 'technology')
+  // }
   
   return (
     <View className="flex-1 items-center justify-center bg-[#D6484C]">

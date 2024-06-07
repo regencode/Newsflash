@@ -1,15 +1,40 @@
 import { View, Text, ScrollView, Image, Pressable, StatusBar, Modal } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import customHeader from './customHeader'
 import settingsPopup from './settingsPopup'
 import BottomPopup from './BottomPagePopup'
 import { TouchableOpacity } from 'react-native'
 import { icons } from '../constants/icons'
+import { getGroqSummary } from '../lib/groq'
+import Loading from './Loading'
+import { markAsSummarized } from '../lib/appwrite'
 
-const NewsPage = ({ showNewsPage, toggleNewsPage, setContentArray }) => {
-  const [showPopup, setShowPopup] = useState(false);
+const NewsPage = ({ documentID, title, category, text_content, source, image, author, date_published, summarized, setSummarized, summary, showNewsPage, toggleNewsPage, isOpened }) => {
+  const [content, setContent] = useState(summary)
+  const [showPopup, setShowPopup] = useState(false)
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    if (!summarized) {
+      // create summary
+      setLoading(true)
+      let generatedSummary = getGroqSummary(text_content).then(
+        (text) => {
+          setContent(text.choices[0]?.message?.content)
+          setSummarized(true)
+          markAsSummarized(documentID, text)
+          setLoading(false)
+
+          // update database
+        },
+        (e) => { console.log(e) }
+      );
+    }
+  }, [isOpened]);
+  
   return (
     <Modal className="absolute w-full h-full" visible={showNewsPage} animationType='fade' transparent={false} onRequestClose={() => {toggleNewsPage(false)}}>
+    <Loading isLoading={loading} loadingText={"Summarizing news..."}/>
       <ScrollView stickyHeaderIndices={[0]} className="bg-main h-full w-full absolute">
       <BottomPopup showPopup={showPopup} togglePopup={setShowPopup} />
         <StatusBar barStyle={'dark-content'} backgroundColor="white"/>
@@ -21,15 +46,15 @@ const NewsPage = ({ showNewsPage, toggleNewsPage, setContentArray }) => {
           </TouchableOpacity>
         </View>
         <View className="w-full h-[30vh] overflow-hidden">
-          <Image source={require("../assets/images/TEST_IMAGE.jpg")} className="align-center absolute object-cover w-[100%] h-[100%]"/>
+          <Image source={{uri: image}} className="align-center absolute object-cover w-[100%] h-[100%]"/>
         </View>
         <View className="w-[85%] h-fit mx-auto mt-[10px]">
-          <Text className="font-proxima-bold text-3xl">Lorem ipsum dolor sit amet consectetur</Text>
-          <Text className="font-proxima text-sm">by Ryan Browne - 09/04/2024</Text>
+          <Text className="font-proxima-bold text-3xl">{title}</Text>
+          <Text className="font-proxima text-sm">by {author} - {date_published}</Text>
         </View>
         <View className="my-[10px] mx-auto w-[85%] h-[25px]">
           <View className="absolute left-0 w-fit h-full rounded-2xl bg-[#FF3A44]">
-            <Text className="font-proxima-bold text-white mx-3 my-auto align-middle">Health</Text>
+            <Text className="font-proxima-bold text-white mx-3 my-auto align-middle">{category}</Text>
           </View>
           <View className="mr-0 ml-auto w-[55%] h-full">
             <View className="absolute left-0 w-fit h-full rounded-2xl bg-[#FF3A44]">
@@ -41,10 +66,8 @@ const NewsPage = ({ showNewsPage, toggleNewsPage, setContentArray }) => {
           </View>
         </View>
         <View className="mx-auto w-[85%]">
-          <Text className="text-justify">
-            Lorem ipsum dolor sit amet consectetur. Aliquam tellus eros porttitor maecenas. Sit sapien nec massa mauris posuere nibh venenatis amet ut. Lobortis non laoreet tellus quis lectus blandit. Risus in aliquam facilisi quis etiam vitae aliquet ultricies arcu. Ipsum accumsan nam sit in justo id. Quis nisl non pretium lectus. Nulla nisl porttitor donec eu eros elementum urna in mi. 
-
-  Arcu ultricies sed nisi id etiam amet tellus. Purus sapien bibendum augue mauris nisl massa. Vestibulum senectus mollis egestas aliquet vulputate augue ultrices vitae. Mollis cras et donec lectus cursus. Mattis mi purus feugiat cursus quis. Amet volutpat facilisis id quis magna. Sodales elit et porta donec venenatis sollicitudin facilisi.
+          <Text className="font-proxima-bold text-justify"> {/* todo: replace with summary later */}
+            {content}
           </Text>
         </View>
       </ScrollView>
