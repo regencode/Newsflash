@@ -6,7 +6,9 @@ run:
 ```
 git clone https://github.com/regencode/Newsflash.git
 npm install
+npm install expo-router
 npx expo start -c
+.
 ```
 
 2602119096 - Thomas Gozalie/regencode
