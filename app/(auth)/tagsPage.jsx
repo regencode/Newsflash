@@ -34,7 +34,7 @@ export default function tagsPage() {
             <TagButton logo="⚽" text="Sports"/>
             <TagButton logo="🤖" text="Technology"/>
         </View>
-        <TouchableOpacity onPressOut={() => {router.replace('(tabs)/Home')}} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[20px] rounded-[30px] border">
+        <TouchableOpacity onPressOut={() => {router.replace('(tabs)/home')}} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[20px] rounded-[30px] border">
         <Text className="relative align-middle justify-center m-auto text-xl text-white font-proxima-bold font-bold">Login</Text>
         </TouchableOpacity>
     </View>
