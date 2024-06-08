@@ -1,6 +1,14 @@
 # Newsflash
 Newsflash is a news application with summarization capabilities, built with expo-react-native, powered by Llama3 LLM provided by GroqCloud.
 
+run:
+
+`
+git clone https://github.com/regencode/Newsflash.git
+npm install
+npx expo start -c
+`
+
 2602119096 - Thomas Gozalie/regencode
 
 2602065774 - Gabriel Seemore Gunawan
