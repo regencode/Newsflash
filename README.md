@@ -2,6 +2,7 @@
 Newsflash is a news application with summarization capabilities, built with expo-react-native, powered by Llama3 LLM provided by GroqCloud.
 
 requires node: v20.13.1
+
 run:
 
 ```
