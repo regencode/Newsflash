@@ -3,11 +3,11 @@ Newsflash is a news application with summarization capabilities, built with expo
 
 run:
 
-`
+```
 git clone https://github.com/regencode/Newsflash.git
 npm install
 npx expo start -c
-`
+```
 
 2602119096 - Thomas Gozalie/regencode
 
