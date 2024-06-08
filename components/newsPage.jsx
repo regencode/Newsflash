@@ -1,5 +1,5 @@
 import { View, Text, ScrollView, Image, Pressable, StatusBar, Modal } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useLayoutEffect } from 'react'
 import customHeader from './customHeader'
 import settingsPopup from './settingsPopup'
 import BottomPopup from './BottomPagePopup'
@@ -8,33 +8,46 @@ import { icons } from '../constants/icons'
 import { getGroqSummary } from '../lib/groq'
 import Loading from './Loading'
 import { markAsSummarized } from '../lib/appwrite'
+import { isOmittedExpression } from 'typescript'
 
-const NewsPage = ({ documentID, title, category, text_content, source, image, author, date_published, summarized, setSummarized, summary, showNewsPage, toggleNewsPage, isOpened }) => {
+const NewsPage = ({ documentID, title, category, text_content, source, image, author, date_published, summarized, setSummarized, summary, showNewsPage, toggleNewsPage, isOpened, setIsOpened }) => {
   const [content, setContent] = useState(summary)
   const [showPopup, setShowPopup] = useState(false)
-  const [loading, setLoading] = useState(false)
+  const [loadingSummary, setLoadingSummary] = useState(true)
+  const [isSummarized, setIsSummarized] = useState(summarized)
 
   useEffect(() => {
-    if (!summarized) {
-      // create summary
-      setLoading(true)
-      let generatedSummary = getGroqSummary(text_content).then(
-        (text) => {
-          setContent(text.choices[0]?.message?.content)
-          setSummarized(true)
-          markAsSummarized(documentID, text)
-          setLoading(false)
+    if (!isOpened) {
+      console.log("not opened")
+      return;
+    }
+    else{
+      console.log("opened")
+      if (!isSummarized) {
+        // create summary
+        console.log("opening")
+        setLoadingSummary(true)
+        let generatedSummary = getGroqSummary(text_content).then(
+          async (text) => {
+            await setContent(text.choices[0]?.message?.content)
+            console.log(text.choices[0]?.message?.content)
+            setIsSummarized(true)
+            markAsSummarized(documentID, text.choices[0]?.message?.content)
+            setLoadingSummary(false)
 
-          // update database
-        },
-        (e) => { console.log(e) }
-      );
+            // update database
+          },
+          (e) => { console.log(e) }
+        );
+      }
+      else{
+        console.log("already summarized")
+      }
     }
   }, [isOpened]);
   
   return (
     <Modal className="absolute w-full h-full" visible={showNewsPage} animationType='fade' transparent={false} onRequestClose={() => {toggleNewsPage(false)}}>
-    <Loading isLoading={loading} loadingText={"Summarizing news..."}/>
       <ScrollView stickyHeaderIndices={[0]} className="bg-main h-full w-full absolute">
       <BottomPopup showPopup={showPopup} togglePopup={setShowPopup} />
         <StatusBar barStyle={'dark-content'} backgroundColor="white"/>
@@ -66,10 +79,11 @@ const NewsPage = ({ documentID, title, category, text_content, source, image, au
           </View>
         </View>
         <View className="mx-auto w-[85%]">
-          <Text className="font-proxima-bold text-justify"> {/* todo: replace with summary later */}
+          <Text className="font-proxima-bold text-justify">
             {content}
           </Text>
         </View>
+        <View className="w-full h-[30vh]"></View>
       </ScrollView>
     </Modal>
   )

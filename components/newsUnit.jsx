@@ -23,7 +23,6 @@ const NewsUnit = ({ documentID, title, category, text_content, source, image, au
   return (
     <TouchableOpacity
       onLongPress={() => {
-        console.log(documentState);
         setShowNewsPage(true);
       }}
       className="w-[92%] h-[128px] border-b border-sub mx-auto justify-center overflow-hidden items-center mb-3 rounded-xl bg-[rgba(0,0,0,.6)]"
@@ -51,13 +50,10 @@ const NewsUnit = ({ documentID, title, category, text_content, source, image, au
         className="align-center absolute object-cover w-[100%] h-[100%]"
         source={{ uri: image }}
       />
-      <View className="absolute align-center w-[100%] h-[100%] bg-black opacity-60"></View>
+      <View className="absolute align-center w-[100%] h-[100%] bg-black opacity-50"></View>
       <View className="align-center w-[90%] h-[80%] text-left mx-auto my-auto">
         <Text className="font-proxima-bold text-[15px] text-white">
           {title}
-        </Text>
-        <Text className="font-proxima text-xs text-white">
-          {author} / {date_published}
         </Text>
         <TagContainer text={category} />
       </View>

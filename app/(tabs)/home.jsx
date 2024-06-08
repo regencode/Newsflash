@@ -21,17 +21,17 @@ const Home = () => {
   const [newsList, setNewsList] = useState([])
   
   let componentList;
-  let amount = 5;
+  let amount = 15;
 
-  useEffect(() => {
-    let getDocs = getDocuments(amount, 'business').then(
+  useLayoutEffect(() => {
+    let getDocs = getDocuments(amount, 'health').then(
       (docs) => {
         setNewsList(docs)
         setLoading(false)
       },
       (e) => {console.log(e)}
     )
-  }, [newsList])
+  }, [])
 
   return (
     <ScrollView className="bg-main" stickyHeaderIndices={[0]}>
@@ -91,14 +91,7 @@ const Home = () => {
             summary={index.summary}
           />;
         })}
-      {/* <NewsUnit
-      title="Lorem ipsum dolor sit amet"
-      author="Generic Writer"
-      date_published="02-02-24"
-      category="business"
-      togglePopup={setShowPopup}
-      /> */}
-
+      <View className="w-full h-[30vh]" />
     </ScrollView>
 
   )
