@@ -8,7 +8,7 @@ import customHeaderNoProfile from '../../components/customHeaderNoProfile';
 const register = () => {
     const router = useRouter()
     function toHome(){
-        return router.replace("../(tabs)/Home");
+        return router.replace("../(tabs)/home");
     }
     function toIndex(){
       return router.back()

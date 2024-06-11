@@ -6,7 +6,7 @@ import customHeaderNoProfile from "../../components/customHeaderNoProfile";
 export default function login() {
     const router = useRouter()
     function toHome(){
-        return router.push("../(tabs)/Home");
+        return router.push("../(tabs)/home");
     }
     function toIndex(){
       return router.back()
