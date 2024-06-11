@@ -7,6 +7,8 @@ import customHeader from '../../components/customHeader.jsx';
 import Explore from "./explore"
 import Home from "./home"
 import Profile from "./profile"
+import Saved from "./saved"
+
 
 const Tab = createBottomTabNavigator();
 
@@ -74,14 +76,14 @@ const TabLayout = () => {
         style: {headerStyle}
       }}/>
       <Tab.Screen
-      name="Profile"
-      component={Profile}
+      name="Saved"
+      component={Saved}
       options={{
         title: "Profile",
         headerShown: false,
         tabBarIcon: ({ color, focused }) => (
           <TabIcon 
-            icon={icons.profile}
+            icon={icons.bookmark}
             color={color}
             name="Saved"
             focused={focused}
