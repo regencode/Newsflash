@@ -1,7 +1,12 @@
-import { Modal, TouchableOpacity, View, Text } from 'react-native'
+import { Modal, TouchableOpacity, View, Text, Linking } from 'react-native'
 import React from 'react'
 
-const BottomPopup = ({ showPopup, togglePopup }) =>{
+const BottomPopup = ({ showPopup, togglePopup, originalUrl }) =>{
+
+    function handleUrl(){
+        console.log(originalUrl)
+        Linking.openURL(originalUrl)
+    }
 
     return (
         <Modal visible={ showPopup } animationType='slide' transparent={true}>
@@ -11,10 +16,10 @@ const BottomPopup = ({ showPopup, togglePopup }) =>{
                     <TouchableOpacity className='mx-auto items-center mt-5 rounded-3xl bg-[#4D4D4D] aspect-[309/51] w-[85vw] h-auto'>
                         <Text className="font-proxima-bold text-white text-xl align-middle my-auto">Save Article</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity className='mx-auto items-center mt-5 rounded-3xl bg-[#4D4D4D] aspect-[309/51] w-[85vw] h-auto'>
+                    <TouchableOpacity  className='mx-auto items-center mt-5 rounded-3xl bg-[#4D4D4D] aspect-[309/51] w-[85vw] h-auto'>
                         <Text className="font-proxima-bold text-white text-xl align-middle my-auto">Add/Remove tag</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity className='mx-auto items-center mt-5 rounded-3xl bg-[#4D4D4D] aspect-[309/51] w-[85vw] h-auto'>
+                    <TouchableOpacity onPress={() => { handleUrl() }} className='mx-auto items-center mt-5 rounded-3xl bg-[#4D4D4D] aspect-[309/51] w-[85vw] h-auto'>
                         <Text className="font-proxima-bold text-white text-xl align-middle my-auto">Go to Original Article</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={()=>{ togglePopup(false) }} className='mx-auto items-center mt-5 rounded-3xl border-2 border-[#4D4D4D] bg-white aspect-[309/51] w-[85vw] h-auto'>

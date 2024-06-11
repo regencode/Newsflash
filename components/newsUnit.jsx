@@ -27,7 +27,7 @@ const NewsUnit = ({ documentID, title, category, text_content, source, image, au
       }}
       className="w-[92%] h-[128px] border-b border-sub mx-auto justify-center overflow-hidden items-center mb-3 rounded-xl bg-[rgba(0,0,0,.6)]"
     >
-      <BottomPopup showPopup={showPopup} togglePopup={setShowPopup}/>
+      <BottomPopup showPopup={showPopup} togglePopup={setShowPopup} originalUrl={source}/>
       <NewsPage
         showNewsPage={showNewsPage}
         toggleNewsPage={setShowNewsPage}

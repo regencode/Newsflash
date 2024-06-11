@@ -49,7 +49,7 @@ const NewsPage = ({ documentID, title, category, text_content, source, image, au
   return (
     <Modal className="absolute w-full h-full" visible={showNewsPage} animationType='fade' transparent={false} onRequestClose={() => {toggleNewsPage(false)}}>
       <ScrollView stickyHeaderIndices={[0]} className="bg-main h-full w-full absolute">
-      <BottomPopup showPopup={showPopup} togglePopup={setShowPopup} />
+      <BottomPopup showPopup={showPopup} togglePopup={setShowPopup} originalUrl={source}/>
         <StatusBar barStyle={'dark-content'} backgroundColor="white"/>
         <View className="w-full h-[10vh]">
           <TouchableOpacity onPress={() => {toggleNewsPage(false)}} className="aspect-[1/1] h-[95%] w-auto justify-center left-2">
