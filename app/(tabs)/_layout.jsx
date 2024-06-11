@@ -4,9 +4,9 @@ import { createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import { icons }  from "../../constants/icons.ts";
 import customHeader from '../../components/customHeader.jsx';
 
-import Explore from "./Explore"
-import Home from "./Home"
-import Profile from "./Profile"
+import Explore from "./explore"
+import Home from "./home"
+import Profile from "./profile"
 
 const Tab = createBottomTabNavigator();
 

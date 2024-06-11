@@ -8,7 +8,7 @@ import customHeaderNoProfile from '../../components/customHeaderNoProfile';
 const register = () => {
     const router = useRouter()
     function toHome(){
-        return router.replace("../(tabs)/Home");
+        return router.replace("../(tabs)/home");
     }
     function toIndex(){
       return router.back()
@@ -51,7 +51,7 @@ const register = () => {
         </View>
       </View>
       <View>
-        <Pressable onPressOut={() => {router.push('./tagsPage')}} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[20px] rounded-[30px] border">
+        <Pressable onPressOut={() => {router.push('../(tabs)/home')}} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-[#FF3A44] border-white mb-[20px] rounded-[30px] border">
           <Text className="relative align-middle justify-center m-auto text-xl text-white font-proxima-bold font-bold">Register</Text>
         </Pressable>
         <Pressable onPressOut={toIndex} className="font-proxima align-middle mx-auto relative w-[226px] h-[51px] bg-transparent border-[#FF3A44] mb-[10px] rounded-[30px] border">
