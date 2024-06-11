@@ -2,6 +2,7 @@
 Newsflash is a news application with summarization capabilities, powered with Llama3 LLM provided by GroqCloud.
 
 requires: node v20.13.1
+
 run:
 ```
 git clone https://github.com/regencode/Newsflash.git && cd Newsflash && npm install expo-router && npx expo start -c .
