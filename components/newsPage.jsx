@@ -8,13 +8,27 @@ import { icons } from '../constants/icons'
 import { getGroqSummary } from '../lib/groq'
 import Loading from './Loading'
 import { markAsSummarized } from '../lib/appwrite'
-import { isOmittedExpression } from 'typescript'
+import { ActivityIndicator } from 'react-native'
 
 const NewsPage = ({ documentID, title, category, text_content, source, image, author, date_published, summarized, setSummarized, summary, showNewsPage, toggleNewsPage, isOpened, setIsOpened }) => {
   const [content, setContent] = useState(summary)
   const [showPopup, setShowPopup] = useState(false)
   const [loadingSummary, setLoadingSummary] = useState(true)
   const [isSummarized, setIsSummarized] = useState(summarized)
+
+
+  function formatDate(date){ // 2024-06-10T05:00:00.00
+    try {
+      let year = date.slice(0, 4)
+      let month = date.slice(5, 7)
+      let day = date.slice(8, 10)
+      let time = date.slice(11, 16)
+      return day.concat("/", month, "/", year, " - ", time)
+    } catch (error) {
+      console.log(error) 
+      return
+    }
+  }
 
   useEffect(() => {
     if (!isOpened) {
@@ -63,7 +77,7 @@ const NewsPage = ({ documentID, title, category, text_content, source, image, au
         </View>
         <View className="w-[85%] h-fit mx-auto mt-[10px]">
           <Text className="font-proxima-bold text-3xl">{title}</Text>
-          <Text className="font-proxima text-sm">by {author} - {date_published}</Text>
+          <Text className="font-proxima text-sm">by {author} - {formatDate(date_published)}</Text>
         </View>
         <View className="my-[10px] mx-auto w-[85%] h-[25px]">
           <View className="absolute left-0 w-fit h-full rounded-2xl bg-[#FF3A44]">
@@ -79,9 +93,16 @@ const NewsPage = ({ documentID, title, category, text_content, source, image, au
           </View>
         </View>
         <View className="mx-auto w-[85%]">
-          <Text className="font-proxima-bold text-justify">
-            {content}
-          </Text>
+          {(isSummarized) ? 
+            <Text className="font-proxima-bold text-justify">
+              {content}
+            </Text>
+            :
+            <View className="mx-auto w-full h-[20vh]">
+              <ActivityIndicator />
+              <Text className="mx-auto font-proxima-bold">Summarizing news...</Text>
+            </View>
+          }
         </View>
         <View className="w-full h-[30vh]"></View>
       </ScrollView>

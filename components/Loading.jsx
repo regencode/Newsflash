@@ -3,7 +3,7 @@ import React from 'react'
 
 const Loading = ( {isLoading, loadingText} ) => {
     return (
-        <Modal visible={isLoading}>
+        <Modal visible={isLoading} transparent={false}>
             <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
                 <ActivityIndicator/>
                 <Text className="font-proxima-bold">{loadingText}</Text>
